@@ -28,6 +28,7 @@
 </template>
 <script>
 export default {
+  name:'display-table',
   props: {
     todoList: { type: Array },
     stateSelect: { type: String },
@@ -44,7 +45,6 @@ export default {
             todoId,
             todoState: "完了",
           })
-          .then((this.todoList[todoId].todoState = "完了"))
           .catch((error) => {
             console.error(error);
           });
@@ -54,7 +54,6 @@ export default {
             todoId,
             todoState: "作業中",
           })
-          .then((this.todoList[todoId].todoState = "作業中"))
           .catch((error) => {
             console.error(error);
           });

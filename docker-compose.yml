@@ -5,4 +5,6 @@ services:
     build: './vuetask3/'
     ports:
       - "4000:3000"
-    command: npm run serve
+      - "5000:9001"
+    # command: npm run serve
+    command: npm run storybook

@@ -12,6 +12,7 @@
 <script>
 import radioBtn from "./RadioBtn";
 export default {
+  name:'todo-Filter',
   props: {
     stateFilter: { type: Array }
   },

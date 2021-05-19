@@ -6,6 +6,7 @@
 </template>
 <script>
 export default {
+  name:'add-Todo',
   data() {
     return {
       todoInput: ""

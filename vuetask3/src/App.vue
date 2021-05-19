@@ -3,7 +3,7 @@
     <h1>ToDoリスト</h1>
     <todo-Filter :stateFilter="stateFilters" @selectFilter="getSelectName" />
     <display-Table :todoList="filterTodoList" />
-    <h2>新規タスクの追加</h2>
+    <h3>新規タスクの追加</h3>
     <add-Todo @getTodo="addTodoList" />
   </div>
 </template>
@@ -13,7 +13,7 @@ import todoFilter from "./components/TodoFilter";
 import displayTable from "./components/DisplayTable";
 import addTodo from "./components/AddTodo";
 export default {
-  name: "App",
+  name: "todo-App",
   components: {
     "todo-Filter": todoFilter,
     "display-Table": displayTable,

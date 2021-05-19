@@ -10,6 +10,7 @@
 </template>
 <script>
 export default {
+  name: 'radio-Btn',
   props: {
     filterLabel: { type: String },
     defaultState: { type: Number }
