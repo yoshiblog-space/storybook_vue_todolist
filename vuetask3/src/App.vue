@@ -2,12 +2,8 @@
   <div id="app">
     <h1>ToDoリスト</h1>
     <todo-Filter :stateFilter="stateFilters" @selectFilter="getSelectName" />
-    <display-Table
-      :todoList="todoList"
-      :stateSelect="checkDisplayState"
-      @todoLength="updatetodoLength"
-    />
-    <h2>新規タスクの追加</h2>
+    <display-Table :todoList="filterTodoList" />
+    <h3>新規タスクの追加</h3>
     <add-Todo @getTodo="addTodoList" />
   </div>
 </template>
@@ -17,7 +13,7 @@ import todoFilter from "./components/TodoFilter";
 import displayTable from "./components/DisplayTable";
 import addTodo from "./components/AddTodo";
 export default {
-  name: "App",
+  name: "todo-App",
   components: {
     "todo-Filter": todoFilter,
     "display-Table": displayTable,
@@ -25,7 +21,6 @@ export default {
   },
   data() {
     return {
-      todoList: [],
       todoIdCount: 0,
       stateFilters: [
         { id: 1, label: "すべて", defaultState: 1 },
@@ -37,20 +32,21 @@ export default {
     };
   },
   methods: {
-    updatetodoLength(length) {
-      console.log(length);
-      this.todoIdCount = length;
-    },
     getSelectName(clickLabel) {
       this.checkDisplayState = clickLabel;
     },
     addTodoList(todoComment) {
-      this.todoList.push({
+      this.todoIdCount = this.$store.getters.doneFilter("すべて").length;
+      this.$store.dispatch("doPushTodoList", {
         todoId: this.todoIdCount,
         todoComment,
         todoState: this.todoStateDefault,
       });
-      this.todoIdCount++;
+    },
+  },
+  computed: {
+    filterTodoList() {
+      return this.$store.getters.doneFilter(this.checkDisplayState);
     },
   },
 };

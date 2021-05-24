@@ -6,9 +6,10 @@
 </template>
 <script>
 export default {
+  name:'add-Todo',
   data() {
     return {
-      todoInput: "",
+      todoInput: ""
     };
   },
   emits: ["getTodo"],
@@ -20,7 +21,7 @@ export default {
       this.$emit("getTodo", this.todoInput);
 
       this.todoInput = "";
-    },
-  },
+    }
+  }
 };
 </script>

@@ -6,22 +6,21 @@
       :value="filterLabel"
       :checked="defaultState"
       v-on:click="handleClick"
-    />{{ filterLabel }}
-  </label>
+    />{{ filterLabel }}</label>
 </template>
 <script>
 export default {
+  name: 'radio-Btn',
   props: {
     filterLabel: { type: String },
-    checked: { tyoe: String },
-    defaultState: { type: Number },
+    defaultState: { type: Number }
   },
-  emits: ["clickFilter"],
+  emits: ["clickFilters"],
   methods: {
     handleClick() {
       const clickLabel = this.filterLabel;
-      this.$emit("clickFilter", clickLabel);
-    },
-  },
+      this.$emit("clickFilters", clickLabel);
+    }
+  }
 };
 </script>
